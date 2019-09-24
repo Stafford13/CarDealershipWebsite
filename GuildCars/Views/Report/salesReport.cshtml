@@ -1,0 +1,91 @@
+﻿@model GuildCars.Models.SaleReportViewModel
+@{
+    ViewBag.Title = "sales";
+}
+
+<h2>Sales Reports</h2>
+
+<div class="container">
+    <div class="col-md-8 fields">
+            <div class="row">
+                <h3>Filters</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-horizontal" role="form" id="used-form">
+                        <div class="col-md-3">
+                            <label for="add-type" class="col-md-2 control-label">
+                                User:
+                            </label>
+                            <div class="col-md-10">
+                                <select id="filterUser" class="u-full-width form-control">
+                                    <option value=All>- All -</option>
+                                    <option value=Bob>Bob</option>
+                                    <option value=Billy>Billy</option>
+                                    <option value=BIlly-Bob>Billy-Bob</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="edit-model" class="col-md-5 control-label">
+                                    Min Year:
+                                </label>
+                                <div class="col-md-5">
+                                    <select id="fromDate" class="u-full-width form-control">
+                                        <option value=2000>Min</option>
+                                        <option value=2000>2000</option>
+                                        <option value=2005>2005</option>
+                                        <option value=2010>2010</option>
+                                        <option value=2015>2015</option>
+                                        <option value=2020>2020</option>
+                                        <option value=2021>2021</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="edit-model" class="col-md-5 control-label">
+                                    Max Year:
+                                </label>
+                                <div class="col-md-5">
+                                    <select id="toDate" class="u-full-width form-control">
+                                        <option value=2021>Max</option>
+                                        <option value=2000>2000</option>
+                                        <option value=2005>2005</option>
+                                        <option value=2010>2010</option>
+                                        <option value=2015>2015</option>
+                                        <option value=2020>2020</option>
+                                        <option value=2021>2021</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-md-offset-1">
+                        <button type="submit" value="All" class="button1" id="searchButtonReport">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h3>Search Results</h3>
+    <div id="salesCount" class="col-md-6">
+        <table id="salesTable" class="table table-hover">
+            <tr>
+                <th width="33%">User</th>
+                <th width="34%">Total sale</th>
+                <th width="33%">Total Vehicles</th>
+            </tr>
+            <tbody id="salesCountRows">
+              
+            </tbody>
+        </table>
+    </div>
+</div>

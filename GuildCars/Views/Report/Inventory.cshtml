@@ -1,0 +1,59 @@
+﻿@model GuildCars.Models.CarInventoryViewModel
+@{
+    ViewBag.Title = "Inventory";
+}
+
+<h2>Inventory</h2>
+
+<div class="container">
+    <h3>New</h3>
+    <div id="newCount" class="col-md-6">
+        <table id="newTable" class="table table-hover">
+            <tr>
+                <th width="15%">Year</th>
+                <th width="20%">Make</th>
+                <th width="20%">Model</th>
+                <th width="5%">Count</th>
+                <th width="40%">Stock Value</th>
+            </tr>
+            <tbody id="newCountRows">
+                @foreach (var car in Model.NewInventory)
+                {<tr>
+                <td>@car.Year</td>
+                <td>@car.Make</td>
+                <td>@car.Model</td>
+                <td>@car.Count</td>
+                <td>@car.StockValue</td>
+                 </tr>
+                }
+                </tbody>
+            </table>
+    </div>
+</div>
+    <br />
+<div class="container">
+    <h3>Used</h3>
+    <div id="usedCount" class="col-md-6">
+        <table id="usedTable" class="table table-hover">
+            <tr>
+                <th width="15%">Year</th>
+                <th width="20%">Make</th>
+                <th width="20%">Model</th>
+                <th width="5%">Count</th>
+                <th width="40%">Stock Value</th>
+            </tr>
+            <tbody id="usedCountRows">
+                @foreach (var car in Model.UsedInventory)
+                {
+                    <tr>
+                <td>@car.Year</td>
+                <td>@car.Make</td>
+                <td>@car.Model</td>
+                <td>@car.Count</td>
+                <td>@car.StockValue</td>
+                        </tr>
+            }
+                </tbody>
+            </table>
+    </div>
+</div>

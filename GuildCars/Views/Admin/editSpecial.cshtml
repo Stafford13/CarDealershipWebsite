@@ -1,0 +1,58 @@
+﻿@model GuildCars.Models.SpecialsViewModel
+@{
+    ViewBag.Title = "editSpecial";
+}
+
+<h2>Specials</h2>
+
+<div class="container">
+    <div class="col-lg-12 fields">
+        @using (Html.BeginForm())
+        { 
+            <div class="form-group">
+                <label for="add-title" class="col-md-2 control-label">
+                    Title:
+                </label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Special.SpecialName, new { @class = "form-control", type = "text", placeholder = "Title", id = "add-title", required = "required"})
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="add-description" class="col-md-2 control-label">
+                    Description:
+                </label>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.Special.SpecialText, new { @class = "form-control", type = "text", placeholder = "Description", id = "add-description", required = "required" })
+                </div>
+            </div>
+            <button class="button1">Save</button>
+            <br />
+        }
+    </div>
+</div>
+<br />
+
+@foreach (var item in Model.Specials)
+{<div class="container">
+     <div class="col-lg-12 fields">
+         <div class="col-md-2">
+             <img src="/images/OzCoin.jpg" alt="Oohh shiny" style="width:100px;height:100px" />
+         </div>
+         <div class="col-md-8">
+             <h4>@item.SpecialName</h4>
+             <p>
+                 @item.SpecialText
+             </p>
+         </div>
+         <div class="col-md-2">
+             @using (Html.BeginForm("DeleteSpecial", "Admin", new { id = item.SpecialId }, FormMethod.Post))
+             {
+              <button class="btn btn-danger button2" onclick="return confirm('Are you sure you want to delete @item.SpecialName?');">Delete</button>
+           }
+         </div>
+         <br />
+     </div>
+    </div>
+    <br />
+}

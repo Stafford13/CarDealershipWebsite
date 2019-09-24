@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Vehicles";
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<div>
+    <ul id="errorList" class="text-danger"></ul>
+</div>
+<div class="container">
+    <div class="col-lg-12 fields">
+        <div class="container">
+            <div class="row">
+                <h4>Quick Search</h4>
+            </div>
+            <div class="row">
+                <form class="form-horizontal" role="form" id="used-form">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text"
+                                   class="form-control"
+                                   id="searchTerm"
+                                   placeholder="Enter Make, Model, or Year" required>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="edit-model" class="col-md-2 control-label">
+                                Price:
+                            </label>
+                            <div class="col-md-5">
+                                <input type="number"
+                                       class="form-control"
+                                       id="minPrice"
+                                       placeholder="" required>
+                            </div>
+                            <div class="col-md-5">
+                                <input type="number"
+                                       class="form-control"
+                                       id="maxPrice"
+                                       placeholder="" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="edit-model" class="col-md-2 control-label">
+                                Year:
+                            </label>
+                            <div class="col-md-5">
+                                <select id="minYear" class="u-full-width form-control">
+                                    <option value=2000>Min</option>
+                                    <option value=2000>2000</option>
+                                    <option value=2005>2005</option>
+                                    <option value=2010>2010</option>
+                                    <option value=2015>2015</option>
+                                    <option value=2020>2020</option>
+                                    <option value=2021>2021</option>
+                                </select>
+                            </div>
+                            <div class="col-md-5">
+                                <select id="maxYear" class="u-full-width form-control">
+                                    <option value=2021>Max</option>
+                                    <option value=2000>2000</option>
+                                    <option value=2005>2005</option>
+                                    <option value=2010>2010</option>
+                                    <option value=2015>2015</option>
+                                    <option value=2020>2020</option>
+                                    <option value=2021>2021</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <button type="submit" value="All" class="button1" id="searchButtonEdit">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <h3>Search Results</h3>
+    <div id="searchResults">
+
+    </div>
+</div>
+<br />

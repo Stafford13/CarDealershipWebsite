@@ -1,0 +1,6 @@
+C:\Users\apprentice.DESKTOP-U4PII7C\Desktop\Repo\eric-stafford-individual-work\DDWP\FinalMastery\GuildCars\GuildCars.Models\bin\Debug\GuildCars.Models.dll
+C:\Users\apprentice.DESKTOP-U4PII7C\Desktop\Repo\eric-stafford-individual-work\DDWP\FinalMastery\GuildCars\GuildCars.Models\bin\Debug\GuildCars.Models.pdb
+C:\Users\apprentice.DESKTOP-U4PII7C\Desktop\Repo\eric-stafford-individual-work\DDWP\FinalMastery\GuildCars\GuildCars.Models\obj\Debug\GuildCars.Models.csproj.CoreCompileInputs.cache
+C:\Users\apprentice.DESKTOP-U4PII7C\Desktop\Repo\eric-stafford-individual-work\DDWP\FinalMastery\GuildCars\GuildCars.Models\obj\Debug\GuildCars.Models.dll
+C:\Users\apprentice.DESKTOP-U4PII7C\Desktop\Repo\eric-stafford-individual-work\DDWP\FinalMastery\GuildCars\GuildCars.Models\obj\Debug\GuildCars.Models.pdb
+C:\Users\apprentice.DESKTOP-U4PII7C\Desktop\Repo\eric-stafford-individual-work\DDWP\FinalMastery\GuildCars\GuildCars.Models\obj\Debug\GuildCars.Models.csprojAssemblyReference.cache

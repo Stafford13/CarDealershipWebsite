@@ -1,0 +1,46 @@
+﻿@model GuildCars.Models.ModelViewModel
+@{
+    ViewBag.Title = "Models";
+}
+
+<h2>Models</h2>
+
+<div class="container">
+    <div class="col-lg-12 fields">
+       @using (Html.BeginForm())
+        {
+        <div class="form-group col-md-5">
+            <label for="new-model" class="col-md-2 control-label">
+                New Model:
+            </label>
+            @Html.DropDownListFor(m => m.Model.MakeId, Model.Makes, new { @class = "form-control", required = "required" })
+
+            @Html.TextBoxFor(m => m.Model.ModelName, new { @class = "form-control", type = "text", placeholder = "Title", id = "add-new-model", required = "required" })
+
+        </div>
+            <div class="col-md-4">
+                <button class="button1">Save</button>
+            </div>
+        }
+    </div>
+    <div id="modelTableDiv" class="col-md-6">
+        <table id="userTable" class="table table-hover">
+            <tr>
+                <th width="30%">Model</th>
+                <th width="30%">Date Added</th>
+                <th width="40%">User</th>
+            </tr>
+            @foreach (var item in Model.Models)
+            {
+                <tr>
+                    <td>@item.ModelName</td>
+                    <td>@item.DateAdded</td>
+                    <td>@item.UserId</td>
+                </tr>}
+        </table>
+
+    </div>
+</div>
+
+@*change html so that each model is added to the table
+Change form so that each new model has a list of available makes*@

@@ -1,0 +1,97 @@
+﻿@model GuildCars.Data.Models.FeaturedCarsViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<div class="jumbotron">
+    <h1>BIG, GINORMOUS, SALE!!</h1>
+    <p class="lead">Welcome to Stafford Auto. The auto-emporium of the world! Take a look around.</p>
+    <p><a href="https://asp.net" class="btn btn-lg">Learn more &raquo;</a></p>
+</div>*@
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+        <div class="item active jumbotron">
+            <h1>BIG, HUGE, SALE!!</h1>
+            <p class="lead">Welcome to Stafford Auto. The auto-emporium of the world! Take a look around.</p>
+            <p><a href="https://asp.net" class="btn btn-lg">Learn more &raquo;</a></p>
+        </div>
+        @foreach (var special in Model.Specials)
+        {
+            <div class="item  jumbotron text-center">
+                <a href="~/Home/Specials" style="text-decoration:none; color:black">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <img src="~/Image/car3.jpg" alt="car3" style="width:100%; height:300px" />
+                        <div class="carousel-caption">
+                                <p>@special.SpecialName </p>
+                                <p>@special.SpecialText</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+</div>
+
+<hr />
+<br />
+
+<div class="container">
+    <h3>Featured Rides</h3>
+    <div class="row">
+        @foreach (var car in Model.FeaturedCars)
+        {
+            <div class="col-md-4" style="margin-bottom: 50px;">
+                <button value=@car.CarId id="item-2" class="button featured">
+                    <img src="/images/@car.ImageFileName" alt="Oohh shiny" style="width:175px;height:100px" />
+                    <p>@car.Year  @car.Make.MakeName @car.Model.ModelName</p>
+                    <p>$ @car.Price</p>
+                </button>
+            </div>
+            <div class="col-md-4" style="margin-bottom: 50px;">
+                <button value=@car.CarId id="item-3" class="button featured">
+                    <img src="/images/@car.ImageFileName" alt="Oohh shiny" style="width:175px;height:100px" />
+                    <p>@car.Year  @car.Make.MakeName @car.Model.ModelName</p>
+                    <p>$ @car.Price</p>
+                </button>
+            </div>
+            <div class="col-md-4" style="margin-bottom: 50px;">
+                <button value=@car.CarId id="item-4" class="button featured">
+                    <img src="/images/@car.ImageFileName" alt="Oohh shiny" style="width:175px;height:100px" />
+                    <p>@car.Year  @car.Make.MakeName @car.Model.ModelName</p>
+                    <p>$ @car.Price</p>
+                </button>
+            </div>
+        }
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="text-center">
+        <h2>Contact Us</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>

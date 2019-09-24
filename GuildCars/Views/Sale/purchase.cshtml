@@ -1,0 +1,182 @@
+﻿@model GuildCars.Models.PurchaseCarViewModel
+@{
+    ViewBag.Title = "purchaseVehicle";
+}
+
+<h2>Purchase Vehicle</h2>
+
+<div class="container">
+    <div class="col-lg-12 fields">
+        <div class="row">
+            <div class="col-md-3">
+                <h4>@Model.Car.Year  @Model.Car.Make.MakeName @Model.Car.Model.ModelName</h4>
+                <img src="/image/@Model.Car.ImageFileName" alt="Oohh shiny" style="width:175px;height:100px" />
+            </div>
+            <div class="col-md-3">
+                <h4></h4>
+                <p>Body type: @Model.Car.Body</p>
+                <p>Trans: @Model.Car.Transmission</p>
+                <p>Color: @Model.Car.ExColor</p>
+            </div>
+            <div class="col-md-3">
+                <h4></h4>
+                <p>Interior: @Model.Car.IntColor</p>
+                <p>Mileage: @Model.Car.Mileage</p>
+                <p>VIN#: @Model.Car.VIN</p>
+            </div>
+            <div class="col-md-3">
+                <h4></h4>
+                <p>MSRP: @Model.Car.MSRP</p>
+                <p>Price: @Model.Car.Price</p>
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3">
+                <p>Details:</p>
+                <p>@Model.Car.Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec vestibulum odio, in consectetur purus. Maecenas mollis dictum enim eget posuere. Donec congue, tellus ut tincidunt aliquet, ipsum tortor aliquam nunc, maximus auctor ligula sapien posuere tortor. Proin malesuada justo vel eros vehicula ultrices. Morbi et augue sollicitudin, porta sapien semper, malesuada neque. Phasellus commodo nibh turpis. Suspendisse pulvinar urna sed erat ornare porttitor. Sed at fringilla massa. Mauris sed massa a erat vestibulum interdum. Mauris laoreet, ligula consectetur pulvinar ornare, odio est sagittis eros, a accumsan ligula massa a felis.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<h3>Sale Information</h3>
+<br />
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(m => m.Car.CarId)
+    @Html.ValidationSummary()
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="name" class="col-md-2 control-label">
+                        Name:
+                    </label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Sale.Name, new { @class = "form-control", type = "text", placeholder = "Name", required = "required" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="phone" class="col-md-2 control-label">
+                        Phone:
+                    </label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Sale.Phone, new { @class = "form-control", type = "number", placeholder = "Phone Number", required = "required" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="email" class="col-md-2 control-label">
+                        Email:
+                    </label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Sale.Email, new { @class = "form-control", type = "text", placeholder = "Email", required = "required" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="street1" class="col-md-2 control-label">
+                        Street:
+                    </label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Sale.Address1, new { @class = "form-control", type = "text", placeholder = "Address 1", required = "required" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="street2" class="col-md-2 control-label">
+                        Apartment # or other:
+                    </label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Sale.Address2, new { @class = "form-control", type = "text", placeholder = "Address 2" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="city" class="col-md-2 control-label">
+                        City:
+                    </label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Sale.City, new { @class = "form-control", type = "text", placeholder = "City", required = "required" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="state" class="col-md-2 control-label">
+                        State:
+                    </label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Sale.State, new { @class = "form-control", type = "text", placeholder = "State" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label for="zip" class="col-md-2 control-label">
+                        Zip Code:
+                    </label>
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Sale.ZipCode, new { @class = "form-control", type = "number", placeholder = "Zip", required = "required" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div style="background-color:lightgrey; height:2px; width:100%;"></div>
+            <br />
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="city" class="col-md-2 control-label">
+                            Purchase Price:
+                        </label>
+                        <div class="col-md-10">
+                            <input type="text"
+                                   class="form-control"
+                                   id="add-description"
+                                   placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="state" class="col-md-2 control-label">
+                            Purchase Type:
+                        </label>
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.Car.Body, new List<SelectListItem>
+                                 {
+                                 new SelectListItem{ Text="Bank Finance", Value = "Bank" },
+                                 new SelectListItem{ Text="Cash", Value = "Cash" },
+                                 new SelectListItem{ Text="Dealer Finance", Value = "Dealer" },
+                             })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <button class="button1">Purchase</button>
+            <br />
+    }
+</div>

@@ -1,0 +1,47 @@
+﻿@model GuildCars.Models.CarDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="container">
+    <div class="col-lg-12 fields">
+        <div class="row">
+            <div class="col-md-3">
+                <h4>@Model.Car.Year @Model.Car.Make.MakeName @Model.Car.Model.ModelName</h4>
+                <img src="/images/@Model.Car.ImageFileName" alt="Oohh shiny" style="width:175px;height:100px" />
+            </div>
+            <div class="col-md-3">
+                <h4></h4>
+                <p>Body type: @Model.Car.Body</p>
+                <p>Trans: @Model.Car.Transmission</p>
+                <p>Color: @Model.Car.ExColor</p>
+            </div>
+            <div class="col-md-3">
+                <h4></h4>
+                <p>Interior: @Model.Car.IntColor</p>
+                <p>Mileage: @Model.Car.Mileage</p>
+                <p>VIN#: @Model.Car.VIN</p>
+            </div>
+            <div class="col-md-3">
+                <h4></h4>
+                <p>MSRP: @Model.Car.MSRP</p>
+                <p>Price: @Model.Car.Price</p>
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-3">
+                <p>Details:</p>
+                <p>@Model.Car.Description Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec vestibulum odio, in consectetur purus. Maecenas mollis dictum enim eget posuere. Donec congue, tellus ut tincidunt aliquet, ipsum tortor aliquam nunc, maximus auctor ligula sapien posuere tortor. Proin malesuada justo vel eros vehicula ultrices. Morbi et augue sollicitudin, porta sapien semper, malesuada neque. Phasellus commodo nibh turpis. Suspendisse pulvinar urna sed erat ornare porttitor. Sed at fringilla massa. Mauris sed massa a erat vestibulum interdum. Mauris laoreet, ligula consectetur pulvinar ornare, odio est sagittis eros, a accumsan ligula massa a felis.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button">Contact Us</button>
+            </div>
+        </div>
+        </div>
+    </div>
+        @*Contact Us button *@

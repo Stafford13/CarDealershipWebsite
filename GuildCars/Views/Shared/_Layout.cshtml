@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title -Guild Cars</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .button {
+            padding: 15px 25px;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #000;
+            width: 220px;
+            height: 175px;
+            background-color: #FFF;
+            /*background-image: linear-gradient(to bottom right, white, lightblue);*/
+            border: 1px solid #000;
+            border-radius: 7px;
+            box-shadow: 0 9px #999;
+        }
+
+        .jumbotron {
+            background-image: linear-gradient(to right, #f2fcfc, #bdf1f6);
+        }
+
+        .btn {
+            background-color: #0245a3;
+            color: #FFF;
+        }
+
+        .button:hover {
+            background-color: lightgrey
+        }
+
+        .button:active {
+            background-color: darkgrey;
+            /*box-shadow: 0 5px #666;*/
+            transform: translateY(4px);
+        }
+
+        .button1:active {
+            background-color: darkgrey;
+        }
+
+        .fields {
+            border-style: solid;
+            border-width: medium;
+            border-radius: 3px;
+        }
+
+        .button1 {
+            background-color: white;
+            border: 2px solid #0245a3;
+            border-radius: 3px;
+            color: black;
+            padding: 10px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 2px 1px;
+            cursor: pointer;
+        }
+
+            .button1:hover {
+                background-color: #0245a3;
+                color: white;
+            }
+
+        .button2 {
+            background-color: lightcoral;
+            border: 2px solid #000;
+            border-radius: 3px;
+            color: black;
+            padding: 8px 22px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 2px 1px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Stafford Auto", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("New Inventory", "New", "Home")</li>
+                    }
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Used Inventory", "Used", "Home")</li>
+                    }
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Specials", "Specials", "Home")</li>
+                    }
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    }
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Sale", "Index", "Sale")</li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Vehicles", "Vehicles", "Admin")</li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Add", "addVehicle", "Admin")</li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Edit", "editVehicle", "Admin")</li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Specials", "editSpecial", "Admin")</li>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Reports", "Index", "Report")</li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Makes", "Makes", "Admin")</li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Models", "Models", "Admin")</li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Users", "Users", "Admin")</li>
+                    }
+                </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/Scripts/Home.js")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

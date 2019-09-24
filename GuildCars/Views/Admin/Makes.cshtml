@@ -1,0 +1,44 @@
+﻿@model GuildCars.Models.MakeViewModel
+@{
+    ViewBag.Title = "Makes";
+}
+
+<h2>Makes</h2>
+
+<div class="container">
+    <div class="col-lg-12 fields">
+        @using (Html.BeginForm())
+        {
+            <div class="form-group col-md-5">
+                <label for="new-make" class="col-md-2 control-label">
+                    New Make:
+                </label>
+                @Html.TextBoxFor(m => m.Make.MakeName, new { @class = "form-control", type = "text", placeholder = "Title", id = "add-new-make", required = "required" })
+            </div>
+            <div class="col-md-4">
+                <button class="button1">Save</button>
+            </div>
+        }
+
+    </div>
+    <div id="makeTableDiv" class="col-md-6">
+        <table id="userTable" class="table table-hover">
+            <tr>
+                <th width="20%">Make</th>
+                <th width="30%">Date Added</th>
+                <th width="50%">User</th>
+            </tr>
+                @foreach (var item in Model.Makes)
+                {
+            <tr>
+                <td>@item.MakeName</td>
+                <td>@item.DateAdded</td>
+                <td>@item.UserId</td>
+            </tr>}
+        </table>
+
+    </div>
+</div>
+
+
+@*change html so that each model is added to the table*@

@@ -1,0 +1,246 @@
+﻿
+@{
+    ViewBag.Title = "Users";
+}
+
+<h2>Users</h2>
+
+<div class="container">
+    <ul class="list-group" id="errorMessages"></ul>
+    <!--
+    Add a row to our container - this will hold the summary table and the new contact form.
+    -->
+    <div id="userTableDiv">
+        <a href="~/Admin/Users" id="new-link">Add New User</a>
+            <table id="userTable" class="table table-hover">
+                <tr>
+                    <th width="20%">First Name</th>
+                    <th width="20%">Last Name</th>
+                    <th width="30%">Email</th>
+                    <th width="16%">Role</th>
+                    <th width="7%"></th>
+                    <th width="7%"></th>
+                </tr>
+                <!--
+         #3: This holds the list of contacts - we will add rows
+        dynamically
+         using jQuery
+         -->
+                <tbody id="contentRows"></tbody>
+            </table>
+    </div>
+
+
+    <div id="editFormDiv" style="display:none;">
+        <h2>Edit User</h2>
+        <form class="form-horizontal" role="form" id="edit-form">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="edit-first-name" class="col-md-4 control-label">
+                            First Name:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text"
+                                   class="form-control"
+                                   id="edit-first-name"
+                                   placeholder="First Name" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="edit-last-name" class="col-md-4 control-label">
+                            Last Name:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text"
+                                   class="form-control"
+                                   id="edit-last-name"
+                                   placeholder="Last Name" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="edit-email" class="col-md-4 control-label">
+                            Email:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="email"
+                                   class="form-control"
+                                   id="edit-email"
+                                   placeholder="Email" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="edit-role" class="col-md-4 control-label">
+                            Role:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text"
+                                   class="form-control"
+                                   id="edit-role"
+                                   placeholder="Role" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="edit-password" class="col-md-4 control-label">Password:</label>
+                        <div class="col-md-8">
+                            <input type="text"
+                                   class="form-control"
+                                   id="edit-password"
+                                   placeholder="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="confirm-password" class="col-md-4 control-label">Confirm Password:</label>
+                        <div class="col-md-8">
+                            <input type="text"
+                                   class="form-control"
+                                   id="confirm-password"
+                                   placeholder="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <input type="hidden" id="edit-contact-id">
+                        <button type="button"
+                                id="edit-cancel-button"
+                                class="btn btn-default"
+                                onclick="hideEditForm()">
+                            Cancel
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button"
+                                id="edit-button"
+                                class="btn btn-default">
+                            Update Contact
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--
+    #4: Add col to hold the new contact form - have it take up the other half of the row
+    -->
+    <div id="addFormDiv">
+        <h2>New User</h2>
+        <form class="form-horizontal" role="form" id="add-form">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="add-first-name" class="col-md-4 control-label">
+                            First Name:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text"
+                                   class="form-control"
+                                   id="add-first-name"
+                                   placeholder="First Name" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="add-last-name" class="col-md-4 control-label">
+                            Last Name:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text"
+                                   class="form-control"
+                                   id="add-last-name"
+                                   placeholder="Last Name" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="add-email" class="col-md-4 control-label">
+                            Email:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="email"
+                                   class="form-control"
+                                   id="add-email"
+                                   placeholder="Email" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="add-role" class="col-md-4 control-label">
+                            Role:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text"
+                                   class="form-control"
+                                   id="add-role"
+                                   placeholder="Role" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="add-password" class="col-md-4 control-label">Password:</label>
+                        <div class="col-md-8">
+                            <input type="text"
+                                   class="form-control"
+                                   id="add-password"
+                                   placeholder="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="confirm-password" class="col-md-4 control-label">Confirm Password:</label>
+                        <div class="col-md-8">
+                            <input type="text"
+                                   class="form-control"
+                                   id="confirm-password"
+                                   placeholder="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <input type="hidden" id="add-contact-id">
+                        <button type="button"
+                                id="add-cancel-button"
+                                class="btn btn-default">
+                            Cancel
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button"
+                                id="add-button"
+                                class="btn btn-default">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
